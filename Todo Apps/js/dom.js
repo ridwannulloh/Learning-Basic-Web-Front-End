@@ -33,18 +33,21 @@ function makeTodo(data /* string */, timestamp /* string */, isCompleted /* bool
 
 function createUndoButton() {
     return createButton("undo-button", function(event){
+        console.log(event)
         undoTaskFromCompleted(event.target.parentElement);
     });
 }
 
 function createTrashButton() {
     return createButton("trash-button", function(event){
+        console.log(event)
         removeTaskFromCompleted(event.target.parentElement);
     });
 }
 
 function createCheckButton() {
     return createButton("check-button", function(event){
+        console.log(event)
         addTaskToCompleted(event.target.parentElement);
     });
 }
@@ -60,6 +63,7 @@ function createButton(buttonTypeClass /* string */, eventListener /* callback fu
 
 
 function addTodo() {
+    console.log("addTodo")
     const uncompletedTODOList = document.getElementById(UNCOMPLETED_LIST_TODO_ID);
     const textTodo = document.getElementById("title").value;
     const timestamp = document.getElementById("date").value;
@@ -67,6 +71,7 @@ function addTodo() {
 
     uncompletedTODOList.append(todo);
 }
+
 function addTaskToCompleted(taskElement /* HTMLELement */) {
     const listCompleted = document.getElementById(COMPLETED_LIST_TODO_ID);
     const taskTitle = taskElement.querySelector(".inner > h2").innerText;
